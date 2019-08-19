@@ -8,10 +8,13 @@ var se="PES",NN=Date.now();var f=function(){
 		d=function(c){clearInterval(si);if(c!="-1"){f1(c);console.log("Found");}}
 		e=function(s){s.split(/[\n\s\b]/g).join(""); return s.trim().split(/\n/g)[0];}
 		for(var i=0;i<q.length;i++){
+			if ( parseInt(q[i].children[6].textContent) < parseInt(q[i].children[5].textContent)
+				 && q[i].children[4].textContent.search(se)>=0
+				){console.warn('Found!');d("-1");break;}
 			if($(q[i].children).first().html().search("data-rowindex")>=0){
 				set.add(e(q[i].children[1].textContent));
 				var c=q[i].children[0].children[0].getAttribute("data-rowindex");
-				if(q[i].children[4].innerHTML.search(se)>=0){d(c);break;}
+				if(q[i].children[4].textContent.search(se)>=0){d(c);break;}
 			}
 		}
 			console.table(Array.from(set));$("#divDSDK table tbody").html(data);
