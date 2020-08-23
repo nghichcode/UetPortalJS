@@ -25,7 +25,8 @@ sr=setInterval(function(){if($("tr.pending").length>0){clearInterval(sr);$(".con
 
 // ---------------
 // # Old Code
-var se="PES";var f=function(){console.clear();console.log(new Date().toLocaleString());
+var se="PES";
+var f=function(){console.clear();console.log(new Date().toLocaleString());
 	si=setTimeout(f,(Math.floor(Math.random()*30+20))*1000);
 	$.post("http://112.137.128.121/danh-sach-mon-hoc/1/1", function(data,status){
 		if(data==$("#divDSDK table tbody").html()){console.log("Same"); return;}
@@ -37,3 +38,13 @@ var se="PES";var f=function(){console.clear();console.log(new Date().toLocaleStr
 			$("#divDSDK table tbody").html(data);
 	});}
 var si=setTimeout(f,4000);
+
+
+
+// 1. Tạo
+$registrationAvailable=true
+// 2. Chuyển môn học sang môn toàn trường
+// 3. Tick các môn cần đăng ký
+// 4. Tạo nút "confirm-registration"
+$('#registration-container div[class="col-md-4 col-md-offset-0"]').append('<button confirm-registration"><i class="icon-save"></i> Ghi nhận</button>');
+// 5. Den gio thi click vao
